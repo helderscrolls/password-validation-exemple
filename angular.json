@@ -84,7 +84,10 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bootstrap/scss/bootstrap-grid.scss",
+              "node_modules/bootstrap/scss/bootstrap-reboot.scss",
+              "node_modules/bootstrap/scss/bootstrap.scss"
             ],
             "scripts": [],
             "assets": [
