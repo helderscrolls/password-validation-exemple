@@ -23,6 +23,6 @@ export class CustomValidators {
     if (password !== confirmPassword) {
       // if they don't match, set an error in our confirmPassword form control
       control.get('confirmPassword').setErrors({ noPasswordMatch: true });
-    }
+    };
   }
 }
