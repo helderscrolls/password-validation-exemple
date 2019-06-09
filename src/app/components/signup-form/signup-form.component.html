@@ -7,12 +7,14 @@
       <div class="card card-body">
         <form [formGroup]="formSignup" (submit)="submit()">
           <div class="form-group">
-            <label for="email" [ngClass]="formSignup.controls['email'].invalid ? 'text-danger' : ''">Email
+            <label for="email"
+              [ngClass]="formSignup.controls['email'].invalid && formSignup.controls['email'].touched ? 'text-danger' : ''">Email
               Address</label>
             <input id="email" formControlName="email" type="email" class="form-control"
-              [ngClass]="formSignup.controls['email'].invalid ? 'is-invalid' : ''">
-            <label class="text-danger" *ngIf="formSignup.controls['email'].hasError('required')">
-              Email is Required!
+              [ngClass]="formSignup.controls['email'].invalid && formSignup.controls['email'].touched ? 'is-invalid' : ''">
+            <label class="text-danger"
+              *ngIf="formSignup.controls['email'].hasError('required') && formSignup.controls['email'].touched">
+              Email is Required! 
             </label>
             <label class="text-danger" *ngIf="formSignup.controls['email'].hasError('email')">
               Enter a valid email address!
@@ -27,7 +29,7 @@
               Password is Required!
             </label> -->
             <label class="col"
-              [ngClass]="formSignup.controls['password'].hasError('required') || formSignup.controls['password'].hasError('minlength')  ? 'text-danger' : 'text-success'">
+              [ngClass]="formSignup.controls['password'].hasError('required') || formSignup.controls['password'].hasError('minlength') ? 'text-danger' : 'text-success'">
               <i class="material-icons">{{ formSignup.controls['password'].hasError('required') ||
                 formSignup.controls['password'].hasError('minlength') ? 'cancel' :
                 'check_circle' }}</i>
@@ -64,20 +66,19 @@
           </div>
           <div class="form-group">
             <label for="confirmPassword"
-              [ngClass]="formSignup.controls['confirmPassword'].invalid ? 'text-danger' : ''">Confirm
+              [ngClass]="formSignup.controls['confirmPassword'].invalid && formSignup.get('confirmPassword').touched || formSignup.controls['confirmPassword'].hasError('noPasswordMatch') ? 'text-danger' : ''">Confirm
               Password:</label>
             <input id="confirmPassword" formControlName="confirmPassword" type="password" class="form-control"
-              [ngClass]="formSignup.controls['confirmPassword'].invalid ? 'is-invalid' : ''">
-            <label class="text-danger" *ngIf="formSignup.controls['confirmPassword'].hasError('required')">
+              [ngClass]="formSignup.controls['confirmPassword'].invalid && formSignup.get('confirmPassword').touched || formSignup.controls['confirmPassword'].hasError('noPasswordMatch') ? 'is-invalid' : ''">
+            <label class="text-danger" *ngIf="formSignup.controls['confirmPassword'].hasError('required') && formSignup.get('confirmPassword').touched">
               Password is Required!
             </label>
-            <label class="text-danger" *ngIf="formSignup.controls['confirmPassword'].hasError('NoPassswordMatch')">
+            <label class="text-danger" *ngIf="formSignup.controls['confirmPassword'].hasError('noPasswordMatch')">
               Password do not match
             </label>
           </div>
           <div class="form-group">
-            <button [disabled]="formSignup.invalid" type="submit"
-              class="btn btn-primary btn-block font-weight-bold">Sign
+            <button [disabled]="formSignup.invalid" type="submit" class="btn btn-primary btn-block font-weight-bold">Sign
               up</button>
           </div>
         </form>
