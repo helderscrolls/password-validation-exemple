@@ -7,83 +7,270 @@
       <div class="card card-body">
         <form [formGroup]="formSignup" (submit)="submit()">
           <div class="form-group">
-            <label for="email"
-              [ngClass]="formSignup.controls['email'].invalid && formSignup.controls['email'].touched ? 'text-danger' : ''">Email
-              Address</label>
-            <input id="email" formControlName="email" type="email" class="form-control"
-              [ngClass]="formSignup.controls['email'].invalid && formSignup.controls['email'].touched ? 'is-invalid' : ''">
-            <label class="text-danger"
-              *ngIf="formSignup.controls['email'].hasError('required') && formSignup.controls['email'].touched">
+            <label
+              for="firstname" 
+              [ngClass]="formSignup.controls['firstname'].invalid
+              && formSignup.controls['firstname'].touched ? 'text-danger': ''"
+            >
+              Firstname
+            </label>
+
+            <input
+              id="firstname"
+              formControlName="firstname"
+              type="text"
+              class="form-control"
+              [ngClass]="formSignup.controls['firstname'].invalid 
+              && formSignup.controls['firstname'].touched ? 'is-invalid' : ''"
+            >
+
+            <label 
+            class="text-danger"
+            *ngIf="formSignup.controls['firstname'].hasError('required') 
+            && formSignup.controls['firstname'].touched"
+            >
+              Firstname is Required!
+            </label>
+          </div>
+
+          <div class="form-group">
+              <label
+                for="lastname" 
+                [ngClass]="formSignup.controls['lastname'].invalid
+                && formSignup.controls['lastname'].touched ? 'text-danger': ''"
+              >
+                Lastname
+              </label>
+  
+              <input
+                id="lastname"
+                formControlName="lastname"
+                type="text"
+                class="form-control"
+                [ngClass]="formSignup.controls['lastname'].invalid 
+                && formSignup.controls['lastname'].touched ? 'is-invalid' : ''"
+              >
+
+              <label 
+              class="text-danger"
+              *ngIf="formSignup.controls['lastname'].hasError('required') 
+              && formSignup.controls['lastname'].touched"
+              >
+                Lastname is Required!
+              </label>
+            </div>
+
+          <div class="form-group">
+            <label
+              for="roles"
+              [ngClass]="formSignup.controls['roles'].invalid
+              && formSignup.controls['roles'].touched ? 'text-danger': ''"
+            >
+              Roles
+            </label>
+
+            <select
+            id="roles"
+            formControlName="roles"
+            type="text"
+            class="form-control"
+            [ngClass]="formSignup.controls['roles'].invalid 
+            && formSignup.controls['roles'].touched ? 'is-invalid' : ''"
+            >
+              <option
+              >
+                Editor  
+              </option>
+
+              <option
+              >
+                Trainer
+              </option>
+            </select>
+
+            <label 
+            class="text-danger"
+            *ngIf="formSignup.controls['roles'].hasError('required') 
+            && formSignup.controls['roles'].touched"
+            >
+              Role is Required!
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label 
+              for="email"
+              [ngClass]="formSignup.controls['email'].invalid 
+              && formSignup.controls['email'].touched ? 'text-danger' : ''"
+            >
+              Email Address
+            </label>
+
+            <input 
+              id="email" 
+              formControlName="email" 
+              type="email" 
+              class="form-control"
+              [ngClass]="formSignup.controls['email'].invalid 
+              && formSignup.controls['email'].touched ? 'is-invalid' : ''"
+            >
+
+            <label 
+              class="text-danger"
+              *ngIf="formSignup.controls['email'].hasError('required') 
+              && formSignup.controls['email'].touched"
+            >
               Email is Required!
             </label>
-            <label class="text-danger" *ngIf="formSignup.controls['email'].hasError('email')">
+
+            <label 
+              class="text-danger" 
+              *ngIf="formSignup.controls['email'].hasError('email')"
+            >
               Enter a valid email address!
             </label>
           </div>
+
           <div class="form-group">
-            <label for="password"
-              [ngClass]="formSignup.controls['password'].invalid && formSignup.get('password').touched ? 'text-danger' : ''">Password:</label>
-            <input id="password" formControlName="password" type="password" class="form-control"
-              [ngClass]="formSignup.controls['password'].invalid && formSignup.get('password').touched ? 'is-invalid' : ''">
-            <label class="text-danger col" *ngIf="formSignup.controls['password'].hasError('required') && formSignup.get('password').touched">
+            <label 
+              for="password"
+              [ngClass]="formSignup.controls['password'].invalid 
+              && formSignup.get('password').touched ? 'text-danger' : ''"
+            >
+              Password:
+            </label>
+
+            <input 
+              id="password" 
+              formControlName="password" 
+              type="password" 
+              class="form-control"
+              [ngClass]="formSignup.controls['password'].invalid 
+              && formSignup.get('password').touched ? 'is-invalid' : ''"
+            >
+
+            <label 
+              class="text-danger col"
+              *ngIf="formSignup.controls['password'].hasError('required') 
+              && formSignup.get('password').touched"
+            >
               Password is Required!
             </label>
-            <div *ngIf="formSignup.controls['password'].dirty">
-              <label class="col"
-                [ngClass]="formSignup.controls['password'].hasError('required') || formSignup.controls['password'].hasError('minlength') ? 'text-danger' : 'text-success'">
-                <i class="material-icons">{{ formSignup.controls['password'].hasError('required') ||
-                formSignup.controls['password'].hasError('minlength') ? 'cancel' :
-                'check_circle' }}</i>
+
+            <div 
+              *ngIf="formSignup.controls['password'].dirty"
+            >
+              <label 
+                class="col"
+                [ngClass]="formSignup.controls['password'].hasError('required') 
+                || formSignup.controls['password'].hasError('minlength') ? 'text-danger' : 'text-success'"
+              >
+                <i class="material-icons">
+                  {{ formSignup.controls['password'].hasError('required') ||
+                  formSignup.controls['password'].hasError('minlength') ? 'cancel' :
+                  'check_circle' }}
+                </i>
                 Must be at least 8 characters!
               </label>
-              <label class="col"
-                [ngClass]="formSignup.controls['password'].hasError('required') || formSignup.controls['password'].hasError('hasNumber')  ? 'text-danger' : 'text-success'">
-                <i class="material-icons">{{ formSignup.controls['password'].hasError('required') ||
-                formSignup.controls['password'].hasError('hasNumber') ? 'cancel' :
-                'check_circle' }}</i>
+
+              <label 
+                class="col"
+                [ngClass]="formSignup.controls['password'].hasError('required') 
+                || formSignup.controls['password'].hasError('hasNumber')  ? 'text-danger' : 'text-success'"
+              >
+                <i class="material-icons">
+                  {{ formSignup.controls['password'].hasError('required') ||
+                  formSignup.controls['password'].hasError('hasNumber') ? 'cancel' :
+                  'check_circle' }}
+                </i>
                 Must contain at least 1 number!
               </label>
-              <label class="col"
-                [ngClass]="formSignup.controls['password'].hasError('required') || formSignup.controls['password'].hasError('hasCapitalCase')  ? 'text-danger' : 'text-success'">
-                <i class="material-icons">{{ formSignup.controls['password'].hasError('required') ||
-                formSignup.controls['password'].hasError('hasCapitalCase') ? 'cancel' :
-                'check_circle' }}</i>
+
+              <label 
+                class="col"
+                [ngClass]="formSignup.controls['password'].hasError('required') 
+                || formSignup.controls['password'].hasError('hasCapitalCase')  ? 'text-danger' : 'text-success'"
+              >
+                <i class="material-icons">
+                  {{ formSignup.controls['password'].hasError('required') ||
+                  formSignup.controls['password'].hasError('hasCapitalCase') ? 'cancel' :
+                  'check_circle' }}
+                </i>
                 Must contain at least 1 in Capital Case!
               </label>
-              <label class="col"
-                [ngClass]="formSignup.controls['password'].hasError('required') || formSignup.controls['password'].hasError('hasSmallCase')  ? 'text-danger' : 'text-success'">
-                <i class="material-icons">{{ formSignup.controls['password'].hasError('required') ||
-                formSignup.controls['password'].hasError('hasSmallCase') ? 'cancel' :
-                'check_circle' }}</i>
+
+              <label 
+                class="col"
+                [ngClass]="formSignup.controls['password'].hasError('required') 
+                || formSignup.controls['password'].hasError('hasSmallCase')  ? 'text-danger' : 'text-success'"
+              >
+                <i class="material-icons">
+                  {{ formSignup.controls['password'].hasError('required') ||
+                  formSignup.controls['password'].hasError('hasSmallCase') ? 'cancel' :
+                  'check_circle' }}
+                </i>
                 Must contain at least 1 Letter in Small Case!
               </label>
-              <label class="col"
-                [ngClass]="formSignup.controls['password'].hasError('required') || formSignup.controls['password'].hasError('hasSpecialCharacters') ? 'text-danger' : 'text-success'">
-                <i class="material-icons">{{ formSignup.controls['password'].hasError('required') ||
-                formSignup.controls['password'].hasError('hasSpecialCharacters') ? 'cancel' :
-                'check_circle' }}</i>
+
+              <label 
+                class="col"
+                [ngClass]="formSignup.controls['password'].hasError('required') 
+                || formSignup.controls['password'].hasError('hasSpecialCharacters') ? 'text-danger' : 'text-success'"
+              >
+                <i class="material-icons">
+                  {{ formSignup.controls['password'].hasError('required') ||
+                  formSignup.controls['password'].hasError('hasSpecialCharacters') ? 'cancel' :
+                  'check_circle' }}
+                </i>
                 Must contain at least 1 Special Character!
               </label>
             </div>
           </div>
-          <div class="form-group">
-            <label for="confirmPassword"
-              [ngClass]="formSignup.controls['confirmPassword'].invalid && formSignup.get('confirmPassword').touched || formSignup.controls['confirmPassword'].hasError('noPasswordMatch') ? 'text-danger' : ''">Confirm
-              Password:</label>
-            <input id="confirmPassword" formControlName="confirmPassword" type="password" class="form-control"
-              [ngClass]="formSignup.controls['confirmPassword'].invalid && formSignup.get('confirmPassword').touched || formSignup.controls['confirmPassword'].hasError('noPasswordMatch') ? 'is-invalid' : ''">
-            <label class="text-danger"
-              *ngIf="formSignup.controls['confirmPassword'].hasError('required') && formSignup.get('confirmPassword').touched">
+
+          <div 
+            class="form-group"
+          >
+            <label 
+              for="confirmPassword"
+              [ngClass]="formSignup.controls['confirmPassword'].invalid && formSignup.get('confirmPassword').touched 
+              || formSignup.controls['confirmPassword'].hasError('noPasswordMatch') ? 'text-danger' : ''"
+            >
+              Confirm Password:
+            </label>
+            
+            <input 
+              id="confirmPassword" 
+              formControlName="confirmPassword" 
+              type="password" 
+              class="form-control"
+              [ngClass]="formSignup.controls['confirmPassword'].invalid && formSignup.get('confirmPassword').touched 
+              || formSignup.controls['confirmPassword'].hasError('noPasswordMatch') ? 'is-invalid' : ''"
+            >
+
+            <label 
+              class="text-danger"
+              *ngIf="formSignup.controls['confirmPassword'].hasError('required') 
+              && formSignup.get('confirmPassword').touched"
+            >
               Password is Required!
             </label>
-            <label class="text-danger" *ngIf="formSignup.controls['confirmPassword'].hasError('noPasswordMatch')">
+
+            <label 
+              class="text-danger" 
+              *ngIf="formSignup.controls['confirmPassword'].hasError('noPasswordMatch')"
+            >
               Password do not match
             </label>
           </div>
+
           <div class="form-group">
-            <button [disabled]="formSignup.invalid" type="submit"
-              class="btn btn-primary btn-block font-weight-bold">Sign
-              up</button>
+            <button 
+              [disabled]="formSignup.invalid" 
+              type="submit"
+              class="btn btn-primary btn-block font-weight-bold"
+            >
+              Sign up
+            </button>
           </div>
         </form>
       </div>
