@@ -29,7 +29,7 @@
             *ngIf="formSignup.controls['firstname'].hasError('required') 
             && formSignup.controls['firstname'].touched"
             >
-              Firstname is Required!
+              Firstname is Required !
             </label>
           </div>
 
@@ -56,7 +56,7 @@
               *ngIf="formSignup.controls['lastname'].hasError('required') 
               && formSignup.controls['lastname'].touched"
               >
-                Lastname is Required!
+                Lastname is Required !
               </label>
             </div>
 
@@ -78,6 +78,12 @@
             && formSignup.controls['roles'].touched ? 'is-invalid' : ''"
             >
               <option
+                [ngValue]="null"
+              >
+                Select a Role
+              </option>
+              
+              <option
               >
                 Editor  
               </option>
@@ -93,7 +99,7 @@
             *ngIf="formSignup.controls['roles'].hasError('required') 
             && formSignup.controls['roles'].touched"
             >
-              Role is Required!
+              Role is Required !
             </label>
           </div>
 
@@ -120,14 +126,14 @@
               *ngIf="formSignup.controls['email'].hasError('required') 
               && formSignup.controls['email'].touched"
             >
-              Email is Required!
+              Email is Required !
             </label>
 
             <label 
               class="text-danger" 
               *ngIf="formSignup.controls['email'].hasError('email')"
             >
-              Enter a valid email address!
+              Enter a valid email address !
             </label>
           </div>
 
@@ -154,7 +160,7 @@
               *ngIf="formSignup.controls['password'].hasError('required') 
               && formSignup.get('password').touched"
             >
-              Password is Required!
+              Password is Required !
             </label>
 
             <div 
@@ -170,7 +176,7 @@
                   formSignup.controls['password'].hasError('minlength') ? 'cancel' :
                   'check_circle' }}
                 </i>
-                Must be at least 8 characters!
+                Must be at least 8 characters !
               </label>
 
               <label 
@@ -183,7 +189,7 @@
                   formSignup.controls['password'].hasError('hasNumber') ? 'cancel' :
                   'check_circle' }}
                 </i>
-                Must contain at least 1 number!
+                Must contain at least 1 number !
               </label>
 
               <label 
@@ -196,7 +202,7 @@
                   formSignup.controls['password'].hasError('hasCapitalCase') ? 'cancel' :
                   'check_circle' }}
                 </i>
-                Must contain at least 1 in Capital Case!
+                Must contain at least 1 in Capital Case !
               </label>
 
               <label 
@@ -209,7 +215,7 @@
                   formSignup.controls['password'].hasError('hasSmallCase') ? 'cancel' :
                   'check_circle' }}
                 </i>
-                Must contain at least 1 Letter in Small Case!
+                Must contain at least 1 Letter in Small Case !
               </label>
 
               <label 
@@ -222,7 +228,7 @@
                   formSignup.controls['password'].hasError('hasSpecialCharacters') ? 'cancel' :
                   'check_circle' }}
                 </i>
-                Must contain at least 1 Special Character!
+                Must contain at least 1 Special Character !
               </label>
             </div>
           </div>
@@ -252,7 +258,7 @@
               *ngIf="formSignup.controls['confirmPassword'].hasError('required') 
               && formSignup.get('confirmPassword').touched"
             >
-              Password is Required!
+              Password is Required !
             </label>
 
             <label 
