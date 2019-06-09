@@ -1,3 +1,28 @@
 .is-invalid {
   border-left: solid 6px red;
 }
+
+.card {
+  background-color: #2e3643;
+  height: 100vh;
+
+  .card-header {
+    color: white;
+  }
+}
+
+label {
+  color: white;
+}
+
+input {
+  background-color: #455266 !important;
+  border-color: #455266;
+  color: white !important;
+}
+
+select {
+  background-color: #455266 !important;
+  border-color: #455266;
+  color: white !important;
+}
